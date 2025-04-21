@@ -86,7 +86,7 @@ Main:
 {Корневой пакет}.weather.WeatherApplication.class
 ```
 
-№ Задание 21. Создание микросервиса location.
+# Задание 21. Создание микросервиса location.
 * Задание 1: Исправить в контроллере: Geodata geodata = repository.findByName(location).get(); RestTemplate restTemplate = new RestTemplate(). Это необходимо сделать для всех сервисов (Person, Location, Weather);
 * Задание 2: Настроить приложение так, чтобы БД сохранялась в файле, а не в оперативной памяти. Это необходимо сделать для сервисов Person, Location.
 * Задание 3: Добавить новые методы API, как указано ниже
