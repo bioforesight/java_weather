@@ -69,8 +69,10 @@ class Wind{
 ```
 
 * Требования к названиям классов:
-```
+
+
 Model:
+```
 {Корневой пакет}.weather.model.Clouds.class
 {Корневой пакет}.weather.model.Coord.class
 {Корневой пакет}.weather.model.Main.class
@@ -78,11 +80,17 @@ Model:
 {Корневой пакет}.weather.model.Sys.class
 {Корневой пакет}.weather.model.Weather.class
 {Корневой пакет}.weather.model.Wind.class
+```
 Controller:
+```
 {Корневой пакет}.weather.controller.WeatherController.class
+```
 Config:
+```
 {Корневой пакет}.weather.config.WeatherConfig.class
+```
 Main:
+```
 {Корневой пакет}.weather.WeatherApplication.class
 ```
 
@@ -109,6 +117,8 @@ class Location{
 }
 ```
 Требования к названиям классов:
+
+
 Model:
 ```
 {Корневой пакет}.location.model.Weather.class
