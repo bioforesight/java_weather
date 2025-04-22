@@ -140,3 +140,49 @@ Main:
 ```
 {Корневой пакет}.location.LocationApplication.class
 ```
+
+# Задание 21. Создание микросервиса location.
+* Задание 1: Исправить в контроллере: Geodata geodata = repository.findByName(location).get(); RestTemplate restTemplate = new RestTemplate(). Это необходимо сделать для всех сервисов (Person, Location, Weather);
+* Задание 2: Настроить приложение так, чтобы БД сохранялась в файле, а не в оперативной памяти. Это необходимо сделать для сервисов Person, Location.
+* Задание 3: Добавить новые методы API, как указано ниже
+
+Требования к API:
+```
+GET /location - Получить все List<Location>
+GET /location?name={name} - Получить Location по name
+POST /location - Добавить новый Location
+PUT /location?name={name} - Изменить Location по name
+DELETE /location?name={name} - Удалить Location по name
+GET /location/weather?name={name} - Получить погоду для Location по name
+```
+Location:
+```
+class Location{
+  Double longitude;
+  Double latitude;
+  String name;
+}
+```
+Требования к названиям классов:
+
+Model:
+```
+{Корневой пакет}.location.model.Weather.class
+{Корневой пакет}.location.model.Location.class
+```
+Controller:
+```
+{Корневой пакет}.location.controller.LocationController.class
+```
+Config:
+```
+{Корневой пакет}.location.config.LocationConfig.class
+```
+Repository:
+```
+{Корневой пакет}.location.repository.LocationRepository.class
+```
+Main:
+```
+{Корневой пакет}.location.LocationApplication.class
+```
