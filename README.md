@@ -141,48 +141,50 @@ Main:
 {Корневой пакет}.location.LocationApplication.class
 ```
 
-# Задание 21. Создание микросервиса location.
-* Задание 1: Исправить в контроллере: Geodata geodata = repository.findByName(location).get(); RestTemplate restTemplate = new RestTemplate(). Это необходимо сделать для всех сервисов (Person, Location, Weather);
-* Задание 2: Настроить приложение так, чтобы БД сохранялась в файле, а не в оперативной памяти. Это необходимо сделать для сервисов Person, Location.
-* Задание 3: Добавить новые методы API, как указано ниже
+# Задание 22. Обнаружение служб.
+* Задание 1. Настроить службы person и location, как клиенты Eureka
+* Задание 2. Создать Bean для экземпляра RestTemplate в приложениях person и location
+* Задание 2. Добавить методы в API как указано ниже
 
 Требования к API:
 ```
-GET /location - Получить все List<Location>
-GET /location?name={name} - Получить Location по name
-POST /location - Добавить новый Location
-PUT /location?name={name} - Изменить Location по name
-DELETE /location?name={name} - Удалить Location по name
-GET /location/weather?name={name} - Получить погоду для Location по name
+GET /person - Получить всех пользователей List<Person>
+GET /person/{id} - Получить пользователя Person по id
+POST /person - Добавить нового пользователя Person
+PUT /person/{id} - Изменить пользователя Person по id
+DELETE /person/{id} - Удалить пользователя Person по id
+GET /person/{id}/weather - Получить погоду для местонахождения пользователя Person по id
 ```
-Location:
+Person:
 ```
-class Location{
-  Double longitude;
-  Double latitude;
-  String name;
+class Person{
+  String firstname;
+  String surname;
+  String lastname;
+  LocalDate birthday;
+  String location;
 }
 ```
 Требования к названиям классов:
 
 Model:
 ```
-{Корневой пакет}.location.model.Weather.class
-{Корневой пакет}.location.model.Location.class
+{Корневой пакет}.person.model.Weather.class
+{Корневой пакет}.person.model.User.class
 ```
 Controller:
 ```
-{Корневой пакет}.location.controller.LocationController.class
+{Корневой пакет}.person.controller.PersonController.class
 ```
 Config:
 ```
-{Корневой пакет}.location.config.LocationConfig.class
+{Корневой пакет}.person.config.PersonConfig.class
 ```
 Repository:
 ```
-{Корневой пакет}.location.repository.LocationRepository.class
+{Корневой пакет}.person.repository.PersonRepository.class
 ```
 Main:
 ```
-{Корневой пакет}.location.LocationApplication.class
+{Корневой пакет}.person.PersonApplication.class
 ```
