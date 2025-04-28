@@ -27,7 +27,7 @@ public class LocationController {
         Optional<Location> locationOpt = repository.findByName(name);
         if (locationOpt.isPresent()) {
             Location location = locationOpt.get();
-            String url = String.format("http://localhost:8083/?lat=%s&lon=%s", location.getLatitude(), location.getLongitude());
+            String url = String.format("http://localhost:8083/location/?lat=%s&lon=%s", location.getLatitude(), location.getLongitude());
             return restTemplate.getForObject(url, Weather.class);
         } else {
             throw new RuntimeException("Location not found");
@@ -35,14 +35,15 @@ public class LocationController {
     }
 
     @GetMapping
-    public List<Location> getAllLocations() {
-        return StreamSupport.stream(repository.findAll().spliterator(), false)
-                .collect(Collectors.toList());
-    }
-
-    @GetMapping(params = "name")
-    public Optional<Location> getLocation(@RequestParam String name) {
-        return repository.findByName(name);
+    public List<Location> getLocations(@RequestParam(required = false) String name) {
+        if (name != null) {
+            return repository.findByName(name)
+                    .map(List::of)
+                    .orElse(List.of());
+        } else {
+            return StreamSupport.stream(repository.findAll().spliterator(), false)
+                    .collect(Collectors.toList());
+        }
     }
 
     @PostMapping
